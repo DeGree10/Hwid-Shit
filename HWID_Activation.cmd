@@ -1216,7 +1216,7 @@ set "string=OSMajorVersion=5;OSMinorVersion=1;OSPlatformId=2;PP=0;Pfn=Microsoft.
 for /f "tokens=* delims=" %%i in ('%psc% [conv%f%ert]::ToBas%f%e64String([Text.En%f%coding]::Uni%f%code.GetBytes("""!string!"""^)^)') do set "encoded=%%i"
 echo "!encoded!" | find "AAAA" %nul1% || exit /b
 
-<nul set /p "=<?xml version="1.0" encoding="utf-8"?><genuineAuthorization xmlns="http://www.microsoft.com/DRM/SL/GenuineAuthorization/1.0"><version>1.0</version><genuineProperties origin="sppclient"><properties>OA3xOriginalProductId=;OA3xOriginalProductKey=;SessionId=!encoded!;TimeStampClient=2022-10-11T12:00:00Z</properties><signatures><signature name="clientLockboxKey" method="rsa-sha256">%%E=</signature></signatures></genuineProperties></genuineAuthorization>" >"%tdir%\GenuineTicket"
+echo ^<?xml version="1.0" encoding="utf-8"?^>^<genuineAuthorization xmlns="http://www.microsoft.com/DRM/SL/GenuineAuthorization/1.0"^>^<version^>1.0^</version^>^<genuineProperties origin="sppclient"^>^<properties^>OA3xOriginalProductId=;OA3xOriginalProductKey=;SessionId=!encoded!;TimeStampClient=2022-10-11T12:00:00Z^</properties^>^<signatures^>^<signature name="clientLockboxKey" method="rsa-sha256"^>%%E=^</signature^>^</signatures^>^</genuineProperties^>^</genuineAuthorization^> > "%tdir%\GenuineTicket"
 )
 
 )
