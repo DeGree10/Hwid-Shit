@@ -1638,15 +1638,7 @@ choice /C:10 /N
 if !errorlevel!==1 (for %%# in (%fixes%) do (start %%#))
 )
 
-if defined terminal (
-call :dk_color %_Yellow% "Press [0] key to %_exitmsg%..."
-choice /c 0 /n
-) else (
-call :dk_color %_Yellow% "Press any key to %_exitmsg%..."
-pause %nul1%
-)
-
-exit /b
+exit
 
 ::========================================================================================================================================
 
